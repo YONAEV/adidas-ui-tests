@@ -38,7 +38,6 @@ public class ProductGridPage {
                (gender.toString()) ) ) ).click();
        genericUtilities.waitForElementPresent( By.xpath( String.format( genderFilterSelected,WordUtils.capitalizeFully
                (gender.toString()) ) ) );
-
         return this;
     }
 
@@ -51,7 +50,7 @@ public class ProductGridPage {
 
     public ProductGridPage selectSport(String sport) throws InterruptedException {
         genericUtilities.waitForElementPresent( By.xpath( String .format( filterLinkBySport, sport) ) );
-        genericUtilities.scroll( "250",false );
+        genericUtilities.scroll( "1100",false );
         driver.findElement( By.xpath( String .format( filterLinkBySport, sport) ) ).click();
         genericUtilities.waitForElementPresent( By.xpath( String .format( sportFilterSelected,sport ) )  );
         return this;
