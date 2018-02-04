@@ -8,7 +8,7 @@ public class GenericUtilities {
     WebDriverWait wait = null;
 
     private WebDriver driver;
-    public String textLocator = "//%s[.='%s']";
+    public String textLocator = "//%s[text()='%s']";
 
     public GenericUtilities(WebDriver driver) {
         this.driver = driver;
@@ -21,9 +21,16 @@ public class GenericUtilities {
         return "test" + time + "@mailinator.com";
     }
 
-    public void scrollInView(WebElement element) throws InterruptedException {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",element);
-        Thread.sleep(500);
+    public void scroll(String pixels, boolean isUp) {
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+        if (isUp) {
+
+            jse.executeScript(String.format("window.scrollBy(0,-%s)", pixels), "");
+        } else {
+            jse.executeScript(String.format("window.scrollBy(0,%s)", pixels), "");
+        }
     }
 
     public boolean isElementPresent(By by) {

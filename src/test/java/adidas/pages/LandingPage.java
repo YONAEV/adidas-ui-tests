@@ -43,7 +43,7 @@ public class LandingPage {
 
     public NewsletterSubscribePage clickSubmitButtonOnEmailExpectingNewsletterSubscriptionPage() throws InterruptedException {
         genericUtilities.waitForElementPresent( submitEmailButton );
-        genericUtilities.scrollInView( submitEmailButton );
+        genericUtilities.scroll( "500",false );
         submitEmailButton.click();
         return new NewsletterSubscribePage( driver );
     }

@@ -51,6 +51,7 @@ public class ProductGridPage {
 
     public ProductGridPage selectSport(String sport) throws InterruptedException {
         genericUtilities.waitForElementPresent( By.xpath( String .format( filterLinkBySport, sport) ) );
+        genericUtilities.scroll( "250",false );
         driver.findElement( By.xpath( String .format( filterLinkBySport, sport) ) ).click();
         genericUtilities.waitForElementPresent( By.xpath( String .format( sportFilterSelected,sport ) )  );
         return this;
@@ -58,7 +59,8 @@ public class ProductGridPage {
 
     public ProductDetailPage selectProductBySubtitle(String subTitle) throws InterruptedException {
         genericUtilities.waitForElementPresent( By.xpath( String .format( productLinkBySubtitle, subTitle) ) );
-        driver.findElement( By.xpath( String .format( productLinkBySubtitle, subTitle) ) ).click();
+        genericUtilities.clickStaleElement( By.xpath( String .format( productLinkBySubtitle, subTitle) ) );
+        //driver.findElement( By.xpath( String .format( productLinkBySubtitle, subTitle) ) ).click();
         return new ProductDetailPage( driver );
     }
 }

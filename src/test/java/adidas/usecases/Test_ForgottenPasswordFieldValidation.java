@@ -28,7 +28,7 @@ public class Test_ForgottenPasswordFieldValidation extends TestBase {
     private WebDriver driver;
     private LoginPage loginPage;
     private ForgottenPasswordPage forgottenPasswordPage;
-    private final String EMAIL_MISSING_ERROR = "The email address is invalid.";
+    private final String EMAIL_MISSING_ERROR = "Please enter a valid e-mail address";
     private final String CAPTCHA_MISSING_ERROR = "Please verify that you are not a robot";
 
     @Test(dataProvider = "testableBrowsers")
