@@ -50,7 +50,7 @@ public class ProductGridPage {
 
     public ProductGridPage selectSport(String sport) throws InterruptedException {
         genericUtilities.waitForElementPresent( By.xpath( String .format( filterLinkBySport, sport) ) );
-        genericUtilities.scroll( "1250",false );
+        genericUtilities.scroll( "1500",false );
         driver.findElement( By.xpath( String .format( filterLinkBySport, sport) ) ).click();
         genericUtilities.waitForElementPresent( By.xpath( String .format( sportFilterSelected,sport ) )  );
         return this;
